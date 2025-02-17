@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "^22",
+    "npm": "^10.9.0"
+  },
   "dependencies": {
     "@auth0/mdl": "^0.3.0",
     "next": "15.1.4",
