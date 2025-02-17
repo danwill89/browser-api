@@ -1,6 +1,6 @@
 {
     "name": "Next.js dev",
-    "image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
     "waitFor": "onCreateCommand",
     "features": {
         "ghcr.io/devcontainers/features/git:1": "os-provided"
