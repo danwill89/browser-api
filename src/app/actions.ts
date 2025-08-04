@@ -16,14 +16,14 @@ const NAMESPACE_ISO_MDL = 'org.iso.18013.5.1';
 * @returns A Promise that resolves to a Map where each key is a namespace and the value is another Map of signable items.
 *
 */
-export const decodeCredential = async (response: vpResponse, namespaces: string[] = [NAMESPACE_ISO_MDL]) => {
-    const token = Buffer.from(response.vp_token, 'base64');
+export const decodeCredential = async (response: string, namespaces: string[] = [NAMESPACE_ISO_MDL]) => {
+    const token = Buffer.from(response, 'base64');
     const mDoc = parse(token);
     const doc1 = mDoc.documents[0];
     const namespacedItems = new Map();
     namespaces.forEach((namespace) => {
         if (doc1.issuerSigned.nameSpaces[namespace]) {
-            const signableItems = new Map<string, any>();
+            const signableItems = new Map<string, unknown>();
             doc1.issuerSigned.nameSpaces[namespace].forEach((e) => {
                 // Convert portrait Uint8Array to base64 string
                 if (e.elementIdentifier === 'portrait' && e.elementValue instanceof Uint8Array) {
